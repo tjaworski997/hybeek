@@ -1,9 +1,11 @@
 [<img src="./res/images/logo.webp" width="150" align="left" style="margin-right:20px"/>](image.png)
-# Hybeek
+# hybeek
 ![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)
 
-Hybrydowa wyszukiwarka danych wykorzytująca semantyczne i leksykalne metody analizu tekstu z wykorzystaniem zewnętrznych silników.
-   
+Hybrydowa wyszukiwarka danych wykorzytująca semantyczne i leksykalne metody analizy tekstu z wykorzystaniem zewnętrznych silników.
+
+
+
 
 ---
 ### todo:

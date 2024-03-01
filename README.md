@@ -1,7 +1,10 @@
-[<img src="./res/images/logo.webp" width="150" align="left" style="margin-right:20px"/>](image.png)
-# hybeek
-![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)
+# Hybeek ![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)
 
+---
+
+[<img src="./res/images/logo.png" width="250" />](image.png)
+
+---
 Hybrydowa wyszukiwarka danych wykorzytująca semantyczne i leksykalne metody analizy tekstu z wykorzystaniem zewnętrznych silników.
 
 

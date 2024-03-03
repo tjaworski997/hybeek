@@ -1,5 +1,5 @@
 from src.app import POSTGRESQL
-from src.modules.db_sql.models.item_model import ItemModel
+from src.modules.db_sql.models.item_data_model import ItemDataModel
 import psycopg2
 
 conn = psycopg2.connect(
@@ -14,14 +14,7 @@ conn = psycopg2.connect(
 cur = conn.cursor()
 
 
-def add(item: ItemModel):
-    print(item.content)
-    print(item.content_normalized)
-    print(item.data)
-    print(item.title)
-    print(item.type)
-    print(item.chunks)
-
+def add(item: ItemDataModel):
     cur.execute("INSERT INTO items (type, title, content, content_normalized, data) "
                 "VALUES (%s, %s, %s, %s, %s) "
                 "RETURNING id",

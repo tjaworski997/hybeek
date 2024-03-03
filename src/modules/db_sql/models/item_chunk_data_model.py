@@ -1,4 +1,4 @@
-class ItemChunkModel:
+class ItemChunkDataModel:
     id: str
     item_id: int
     no: int

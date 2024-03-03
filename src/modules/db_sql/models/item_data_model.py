@@ -1,16 +1,16 @@
 from typing import List
 
-from src.modules.db_sql.models.item_chunk_model import ItemChunkModel
+from src.modules.db_sql.models.item_chunk_data_model import ItemChunkDataModel
 
 
-class ItemModel:
+class ItemDataModel:
     id: str
     type: int
     title: str
     content: str
     content_normalized: str
     data: {}
-    chunks: list[ItemChunkModel]
+    chunks: list[ItemChunkDataModel]
 
     def __init__(self, type, title, content, content_normalized, data: None, chunks=None):
         self.type = type

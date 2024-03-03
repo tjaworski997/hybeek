@@ -2,7 +2,6 @@
 
 Hybrid data search engine
 
----
 [<img src="./res/images/logo.png" width="75" />](image.png)
 
 ### Description:

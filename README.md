@@ -1,34 +1,39 @@
 # Hybeek ![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)
 
-[<img src="./res/images/logo.png" width="250" />](image.png)
+Hybrid data search engine
 
-### opis:
+---
+[<img src="./res/images/logo.png" width="75" />](image.png)
 
-Hybrydowa wyszukiwarka danych wykorzytująca semantyczne i leksykalne metody analizy tekstu z wykorzystaniem zewnętrznych
-silników opensource.
-Semantyczne wyszukiwanie danych w oparciu o reprezentację wektorową tekstu geneorwaną na podstawie
-modeli językowych.
+### Description:
 
-### technologie:
+In our applications, we often face the need to deliver users with data they want and need. I often struggle with quickly
+reaching a single entry,
+remembering only the context, sometimes a word. I have decided to tackle the task of preparing a universal search engine
+that can operate on data from any application,
+providing the ability to search for data based on both their semantics and content.
 
-- Qdrant
-- Elasticsearch
-- Postgres
+I want to base the solution on three open-source engines:
 
-### todo:
+    Qdrant - vector search engine
+    Elasticsearch - text search engine
+    Postgres - database engine
 
-- [X] qdrant - instalacja
-- [X] implementacja tworzenia reprezentacji wektorowej tekstu na podstawie opensource'owych modeli językowych
-- [X] import danych z plików
-- [X] weryfikacja wyszukiwania, sprawdzenie czy wyniki są satysfakcjonujące
-- [X] podjęcie dezycji czy w ogóle warto rozwijać projekt:-)
-- [ ] postgres - serwis obslugi zapisu danych
-- [ ] postgres - rozpoznanie fulltext search dla postgres
-- [ ] api
-- [ ] obsługa semantycznych zapytań z wykorzystaniem qdrant
-- [ ] elasticsearch - instalacja
-- [ ] elasticsearch - integracja
-- 
+For generating text vectors, I want to use open-source language models.
+
+### Todo:
+
+    [X] qdrant - installation
+    [X] implementing creation of text vector representation using open-source language models
+    [X] importing data from files
+    [X] verification of search, checking if the results are satisfactory
+    [X] deciding whether it's worth developing the project:-)
+    [ ] postgres - data writing service
+    [ ] postgres - full-text search recognition for postgres
+    [ ] API
+    [ ] handling semantic queries using qdrant
+    [ ] elasticsearch - installation
+    [ ] elasticsearch - integration
 
 
 

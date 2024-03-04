@@ -9,14 +9,14 @@ from src.app import QDRANT
 client = QdrantClient(host=QDRANT.host, port=QDRANT.port)
 
 
-def create_collection_if_not_exists(collection_name: str, vector_size: int):
+def create_collection_if_not_exists(collection_name: str):
     collections_res = client.get_collections()
     collection_names = [collection.name for collection in collections_res.collections]
     if collection_name not in collection_names:
-        print("Creating collection with name:", collection_name, "and vector size:", vector_size)
+        print("Creating collection with name:", collection_name, "and vector size:", QDRANT.vector_size)
         client.recreate_collection(
             collection_name=collection_name,
-            vectors_config=VectorParams(size=vector_size, distance=Distance.COSINE),
+            vectors_config=VectorParams(size=QDRANT.vector_size, distance=Distance.COSINE),
         )
 
 

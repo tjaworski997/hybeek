@@ -3,9 +3,11 @@ class ItemModel:
     dataset_id: str
     entity_id: str
     content: str
+    data: str
 
-    def __init__(self, application_id, dataset_id, entity_id, content):
+    def __init__(self, application_id, dataset_id, entity_id, content, data):
         self.application_id = application_id
         self.dataset_id = dataset_id
         self.entity_id = entity_id
         self.content = content
+        self.data = data

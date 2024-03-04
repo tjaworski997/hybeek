@@ -1,3 +1,5 @@
+import json
+
 from src.app import POSTGRESQL
 from src.modules.db_sql.models.item_data_model import ItemDataModel
 import psycopg2
@@ -15,16 +17,19 @@ cur = conn.cursor()
 
 
 def add(item: ItemDataModel):
-    cur.execute("INSERT INTO items (type, title, content, content_normalized, data) "
-                "VALUES (%s, %s, %s, %s, %s) "
-                "RETURNING id",
-                (
-                    item.type,
-                    item.title,
-                    item.content,
-                    item.content_normalized,
-                    item.data
-                ))
+    cur.execute(
+        "INSERT INTO items (application_id, dataset_id, entity_id, content, content_normalized, data, processed)"
+        "VALUES (%s, %s, %s, %s, %s, %s, %s)"
+        "RETURNING id",
+        (
+            item.application_id,
+            item.dataset_id,
+            item.entity_id,
+            item.content,
+            item.content_normalized,
+            item.data,
+            item.processed
+        ))
 
     row_id = cur.fetchone()[0]
 

@@ -1,27 +1,34 @@
-from src.modules.db_sql.models.item_chunk_model import ItemChunkModel
-from src.modules.db_sql.models.item_model import ItemModel
+import json
+
+from src.modules.db_sql.models.item_chunk_data_model import ItemChunkDataModel
+from src.modules.db_sql.models.item_data_model import ItemDataModel
 from src.modules.db_sql.postgresql.items_service import add
 
 
 def add_test():
     chunks = [
-        ItemChunkModel(
+        ItemChunkDataModel(
             no=1,
             content_normalized="content_normalized_1"
         ),
-        ItemChunkModel(
+        ItemChunkDataModel(
             no=2,
             content_normalized="content_normalized_2"
         )
     ]
 
-    item = ItemModel(
-        type=1,
-        title="title",
+    data = {"test": True, "name": "tomek.nowakowski"}
+    data_json = json.dumps(data)
+
+    item = ItemDataModel(
+        application_id='appId',
+        dataset_id="products",
+        entity_id="a1203",
         content="content",
         content_normalized="content_normalized",
-        data=None,
-        chunks=chunks)
+        data=data_json,
+        chunks=chunks,
+        processed=False)
 
     add(item)
 

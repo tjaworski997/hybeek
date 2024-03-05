@@ -4,6 +4,7 @@ class ItemModel:
     entity_id: str
     content: str
     data: str
+    chunks: []
 
     def __init__(self, application_id, dataset_id, entity_id, content, data):
         self.application_id = application_id
@@ -11,3 +12,4 @@ class ItemModel:
         self.entity_id = entity_id
         self.content = content
         self.data = data
+        self.chunks = []

@@ -5,9 +5,9 @@ class App:
 
 
 class QDRANT:
-    host = "localhost",
-    port = 6333,
-    vector_size = 768
+    host: str = "localhost"
+    port: int = 6333
+    vector_size: int = 768
 
 
 class POSTGRESQL:

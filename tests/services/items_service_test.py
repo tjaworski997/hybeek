@@ -1,5 +1,5 @@
 from src.modules.services.items_service import add
-from src.modules.services.models.item_model import ItemModel
+from src.modules.models.item_model import ItemModel
 
 item = ItemModel("whisli",
                  "kb",

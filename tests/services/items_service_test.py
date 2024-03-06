@@ -1,4 +1,4 @@
-from src.modules.services.items_service import add
+from src.modules.services.items_service import add, delete
 from src.modules.models.item_model import ItemModel
 
 item = ItemModel("whisli",
@@ -19,3 +19,5 @@ item = ItemModel("whisli",
                  data="{}")
 
 add(item)
+
+delete("whisli", "kb", "a1203")

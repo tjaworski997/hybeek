@@ -16,7 +16,7 @@ conn = psycopg2.connect(
 cur = conn.cursor()
 
 
-def add(item: ItemDataModel):
+def add(item: ItemDataModel, with_commit=True):
     cur.execute(
         "INSERT INTO items (application_id, dataset_id, entity_id, content, content_normalized, data, processed)"
         "VALUES (%s, %s, %s, %s, %s, %s, %s)"
@@ -43,3 +43,22 @@ def add(item: ItemDataModel):
                             chunk.content_normalized
                         ))
     conn.commit()
+
+
+def delete(application_id, dataset_id, entity_id, with_commit=True):
+    print(application_id, dataset_id, entity_id)
+
+    cur.execute("SELECT id from items where application_id = %s and dataset_id = %s and entity_id = %s",
+                (application_id, dataset_id, entity_id))
+
+    item_id = cur.fetchone()[0]
+    print(item_id)
+
+    if (item_id is None):
+        return
+
+    cur.execute("DELETE from items where id = %s",
+                (item_id,))
+
+    if with_commit:
+        conn.commit()

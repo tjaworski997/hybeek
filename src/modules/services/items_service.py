@@ -5,6 +5,7 @@ from src.modules.db_sql.models.item_data_model import ItemDataModel
 from src.modules.db_vector.qdrant.collections_service import add as db_vector_add
 from src.modules.models.item_model import ItemModel
 from src.modules.db_sql.postgresql.items_service import add as db_sql_add
+from src.modules.db_sql.postgresql.items_service import delete as db_sql_delete
 
 max_chunk_size = 512
 
@@ -41,3 +42,7 @@ def add(item: ItemModel):
     # vector
 
     db_vector_add(item)
+
+
+def delete(application_id, dataset_id, entity_id):
+    db_sql_delete(application_id, dataset_id, entity_id)

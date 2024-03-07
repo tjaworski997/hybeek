@@ -2,7 +2,7 @@ import json
 
 from src.modules.db_sql.models.item_chunk_data_model import ItemChunkDataModel
 from src.modules.db_sql.models.item_data_model import ItemDataModel
-from src.modules.db_sql.postgresql.items_service import add
+from src.modules.db_sql.postgresql.items_service import add_or_update
 
 
 def add_test():
@@ -30,7 +30,7 @@ def add_test():
         chunks=chunks,
         processed=False)
 
-    add(item)
+    add_or_update(item)
 
 
 add_test()

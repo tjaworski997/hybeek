@@ -4,13 +4,13 @@ from src.modules.db_sql.models.item_chunk_data_model import ItemChunkDataModel
 from src.modules.db_sql.models.item_data_model import ItemDataModel
 from src.modules.db_vector.qdrant.collections_service import add as db_vector_add
 from src.modules.models.item_model import ItemModel
-from src.modules.db_sql.postgresql.items_service import add as db_sql_add
+from src.modules.db_sql.postgresql.items_service import add_or_update as db_sql_add
 from src.modules.db_sql.postgresql.items_service import delete as db_sql_delete
 
 max_chunk_size = 512
 
 
-def add(item: ItemModel):
+def add_or_update(item: ItemModel):
     sentences = get_sentences_from_content(item.content)
     for idx, sentence in enumerate(sentences):
         clean_sentence = clean_content(sentence)

@@ -27,7 +27,8 @@ For generating text vectors, I want to use open-source language models.
     [X] importing data from files
     [X] verification of search, checking if the results are satisfactory
     [X] deciding whether it's worth developing the project:-)
-    [ ] postgres - data writing service
+    [X] postgres - data writing service
+    [ ] qdrant - data writing service
     [ ] postgres - full-text search recognition for postgres
     [ ] API
     [ ] handling semantic queries using qdrant

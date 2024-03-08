@@ -1,0 +1,15 @@
+version: "2.0"
+
+services:
+  qdrant:
+    image: qdrant/qdrant
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - type: bind
+        source: ./data/qdrant
+        target: /qdrant/storage
+
+
+

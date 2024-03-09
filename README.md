@@ -29,11 +29,14 @@ For generating text vectors, I want to use open-source language models.
     [X] deciding whether it's worth developing the project:-)
     [X] postgres - data writing service
     [ ] qdrant - data writing service
+    [ ] qdrant - edit object 
+    [ ] qdrant - data update
     [ ] postgres - full-text search recognition for postgres
     [ ] API
     [ ] handling semantic queries using qdrant
-    [ ] elasticsearch - installation
+    [X] elasticsearch - installation
     [ ] elasticsearch - integration
+
 
 
 

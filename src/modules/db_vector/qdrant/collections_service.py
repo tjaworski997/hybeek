@@ -1,5 +1,5 @@
 from qdrant_client import QdrantClient
-from qdrant_client.http.models import PointStruct
+from qdrant_client.http.models import PointStruct, models
 from qdrant_client.models import Distance, VectorParams
 
 import json
@@ -48,3 +48,67 @@ def add(item: ItemModel):
             "entity_id": item.entity_id
         }
         add_vectors_to_collection(item.application_id, vector, payload)
+
+
+def get_by_filter(collection_name: str, dataset_id: str, entity_id: str):
+    res = client.scroll(
+        collection_name=collection_name,
+        scroll_filter=models.Filter(
+            must=[
+                models.FieldCondition(
+                    key="dataset_id",
+                    match=models.MatchValue(value=dataset_id),
+                ),
+                models.FieldCondition(
+                    key="entity_id",
+                    match=models.MatchValue(value=entity_id),
+                ),
+            ]
+        ),
+    )
+
+    ids = []
+    for x in res[0]:
+        ids.append(x.id)
+
+    return ids
+
+
+def add_or_update(item: ItemModel):
+    create_collection_if_not_exists(item.application_id)
+    to_delete_ids = get_by_filter(item.application_id, item.dataset_id, item.entity_id)
+
+    vectors = get_embeddings(item.chunks)
+
+    points = []
+
+    for idx, vector in enumerate(vectors):
+        payload = {
+            "dataset_id": item.dataset_id,
+            "entity_id": item.entity_id
+        }
+
+        idx = uuid.uuid4()
+        points.append(
+            PointStruct(
+                id=str(idx),
+                vector=vector,
+                payload=payload
+            ))
+
+    update_operations = []
+
+    if len(to_delete_ids) > 0:
+        update_operations.append(models.DeleteOperation(
+            delete=models.PointIdsList(points=to_delete_ids)
+        ))
+
+    update_operations.append(models.UpsertOperation(
+        upsert=models.PointsList(
+            points=points
+        )
+    ))
+
+    client.batch_update_points(
+        collection_name=item.application_id,
+        update_operations=update_operations)

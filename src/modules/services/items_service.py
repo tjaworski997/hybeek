@@ -2,7 +2,8 @@ from src.modules.content.content_cleaner_service import clean_content
 from src.modules.content.sentences_service import get_sentences_from_content
 from src.modules.db_sql.models.item_chunk_data_model import ItemChunkDataModel
 from src.modules.db_sql.models.item_data_model import ItemDataModel
-from src.modules.db_vector.qdrant.collections_service import add as db_vector_add
+from src.modules.db_vector.qdrant.collections_service import add as db_vector_add, \
+    add_or_update as db_vector_add_or_update
 from src.modules.models.item_model import ItemModel
 from src.modules.db_sql.postgresql.items_service import add_or_update as db_sql_add
 from src.modules.db_sql.postgresql.items_service import delete as db_sql_delete
@@ -41,7 +42,7 @@ def add_or_update(item: ItemModel):
 
     # vector
 
-    db_vector_add(item)
+    db_vector_add_or_update(item)
 
 
 def delete(application_id, dataset_id, entity_id):

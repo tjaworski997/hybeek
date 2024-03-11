@@ -53,10 +53,12 @@ def delete(application_id, dataset_id, entity_id, with_commit=True):
     cur.execute("SELECT id from items where application_id = %s and dataset_id = %s and entity_id = %s",
                 (application_id, dataset_id, entity_id))
 
-    item_id = cur.fetchone()[0]
+    item = cur.fetchone()
 
-    if (item_id is None):
+    if item is None:
         return
+
+    item_id = item[0]
 
     cur.execute("DELETE from items where id = %s",
                 (item_id,))

@@ -1,7 +1,15 @@
-from src.modules.embeddings.embeddings_service import get_embeddings
+from typing import Union
 
-print("test 1")
+from fastapi import FastAPI
 
-vectors = get_embeddings(["mój pies ma na imię michał", "dwa lub trzy", "słońce świeci w niedzielę"])
+app = FastAPI()
 
-print(vectors)
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+
+@app.get("/items/{item_id}")
+def read_item(item_id: int, q: Union[str, None] = None):
+    return {"item_id": item_id, "q": q}

@@ -1,3 +1,4 @@
+from src.modules.api.models.ItemApiModel import ItemApiModel
 from src.modules.content.content_cleaner_service import clean_content
 from src.modules.content.sentences_service import get_sentences_from_content
 from src.modules.db_sql.models.item_chunk_data_model import ItemChunkDataModel

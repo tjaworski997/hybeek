@@ -1,3 +1,6 @@
+from pydantic import BaseModel
+
+
 class ItemModel:
     application_id: str
     dataset_id: str

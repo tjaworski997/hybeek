@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "76d119ca-8ad1-46cf-b7bd-6405098da70b",
+		"name": "hybeek",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7390563"
+	},
+	"item": [
+		{
+			"name": "add_or_update",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "pl"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpIjoiMSIsIm4iOiJzYSIsInIiOiJBZG1pbmlzdHJhdG9yIiwidSI6IkJhY2tPZmZpY2UiLCJleHAiOjE3MDk3NTMwMjEsImlzcyI6InJhY2Nvb24iLCJhdWQiOlsicmFjY29vbiIsInJhY2Nvb24iLCJyYWNjb29uIiwicmFjY29vbiIsInJhY2Nvb24iLCJyYWNjb29uIiwicmFjY29vbiIsInJhY2Nvb24iXX0.kuP4cxqBzs3Z-Zt86-glJzb7InrRqGJ_dz_dv9ahDU0"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json;charset=utf-8"
+					},
+					{
+						"key": "Origin",
+						"value": "https://office.interbeds.pl"
+					},
+					{
+						"key": "DNT",
+						"value": "1"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Referer",
+						"value": "https://office.interbeds.pl/"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "TE",
+						"value": "trailers"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"application_id\": \"raccoon\",\r\n    \"dataset_id\": \"products\",\r\n    \"entity_id\": \"a1\",\r\n    \"content\": \"łóżko dwu piętrowe, dla chłopców, bez materaca, w kolorze niebieskim, wykończenie góralskie\"\r\n \r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/items",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"items"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

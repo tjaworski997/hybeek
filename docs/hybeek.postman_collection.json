@@ -88,6 +88,46 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/search?application_id=whisli&dataset_id=kb&search_expression=krak%C3%B3w&top=3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "application_id",
+							"value": "whisli"
+						},
+						{
+							"key": "dataset_id",
+							"value": "kb"
+						},
+						{
+							"key": "search_expression",
+							"value": "krak%C3%B3w"
+						},
+						{
+							"key": "top",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

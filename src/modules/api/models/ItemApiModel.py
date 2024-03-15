@@ -6,4 +6,4 @@ class ItemApiModel(BaseModel):
     dataset_id: str
     entity_id: str
     content: str
-    data: str | None = None
+    data: object | None = None

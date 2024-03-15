@@ -85,7 +85,8 @@ def add_or_update(item: ItemModel):
     for idx, vector in enumerate(vectors):
         payload = {
             "dataset_id": item.dataset_id,
-            "entity_id": item.entity_id
+            "entity_id": item.entity_id,
+            "data": json.dumps(item.data)
         }
 
         idx = uuid.uuid4()

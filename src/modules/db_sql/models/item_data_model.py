@@ -9,11 +9,11 @@ class ItemDataModel:
     entity_id: str
     content: str
     content_normalized: str
-    data: str
+    data: object
     chunks: list[ItemChunkDataModel]
     processed: bool
 
-    def __init__(self, application_id, dataset_id, entity_id, content, content_normalized, data: {}, chunks=None,
+    def __init__(self, application_id, dataset_id, entity_id, content, content_normalized, data: object, chunks=None,
                  processed=False):
         self.application_id = application_id
         self.dataset_id = dataset_id

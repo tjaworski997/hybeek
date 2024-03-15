@@ -6,7 +6,7 @@ class ItemModel:
     dataset_id: str
     entity_id: str
     content: str
-    data: str
+    data: object
     chunks: []
 
     def __init__(self, application_id, dataset_id, entity_id, content, data):

@@ -29,7 +29,7 @@ def add_or_update(item: ItemDataModel, with_commit=True):
             item.entity_id,
             item.content,
             item.content_normalized,
-            item.data,
+            json.dumps(item.data),
             item.processed
         ))
 

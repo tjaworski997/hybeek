@@ -39,6 +39,7 @@ def search(collection_name: str, dataset_id: str, search_expression: str, top: i
     result = []
 
     for hit in hits.groups:
-        result.append(SearchResultModel(hit.hits[0].payload["entity_id"], hit.hits[0].score))
+        result.append(
+            SearchResultModel(hit.hits[0].payload["entity_id"], hit.hits[0].score, hit.hits[0].payload["data"]))
 
     return result

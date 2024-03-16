@@ -48,3 +48,4 @@ def add_or_update(item: ItemModel):
 
 def delete(application_id, dataset_id, entity_id):
     db_sql_delete(application_id, dataset_id, entity_id)
+    # todo: delete from vector

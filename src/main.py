@@ -6,7 +6,7 @@ from fastapi import FastAPI
 
 from src.modules.api.models.ItemApiModel import ItemApiModel
 from src.modules.models.item_model import ItemModel
-from src.modules.services.items_service import add_or_update as service_add_or_update
+from src.modules.services.items_service import add_or_update as service_add_or_update, delete as service_delete
 from src.modules.services.search_service import search as service_search
 
 app = FastAPI()
@@ -38,3 +38,8 @@ def add_or_update(item: ItemApiModel):
 @app.get("/search")
 def search(application_id: str, dataset_id: str, search_expression: str, top: int):
     return service_search(application_id, dataset_id, search_expression, top)
+
+
+@app.delete("/items/")
+def delete(application_id: str, dataset_id: str, entity_id: str):
+    service_delete(application_id, dataset_id, entity_id)

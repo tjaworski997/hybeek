@@ -70,7 +70,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\r\n    \"application_id\": \"raccoon\",\r\n    \"dataset_id\": \"products\",\r\n    \"entity_id\": \"a1\",\r\n    \"content\": \"łóżko dwu piętrowe, dla chłopców, bez materaca, w kolorze niebieskim, wykończenie góralskie\"\r\n \r\n}\r\n"
+					"raw": "{\r\n    \"application_id\": \"raccoon\",\r\n    \"dataset_id\": \"products\",\r\n    \"entity_id\": \"a1\",\r\n    \"content\": \"łóżko dwu piętrowe, dla chłopców, bez materaca, w kolorze niebieskim, wykończenie góralskie\",\r\n    \"data\": {\r\n        \"nazwa\": \"Produkt testowy\", \"test\" : [{\"a\": true}]\r\n    }\r\n}"
 				},
 				"url": {
 					"raw": "http://127.0.0.1:8000/items",
@@ -123,6 +123,42 @@
 						{
 							"key": "top",
 							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/items?application_id=raccoon&dataset_id=products&entity_id=a2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"items"
+					],
+					"query": [
+						{
+							"key": "application_id",
+							"value": "raccoon"
+						},
+						{
+							"key": "dataset_id",
+							"value": "products"
+						},
+						{
+							"key": "entity_id",
+							"value": "a2"
 						}
 					]
 				}

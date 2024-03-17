@@ -113,3 +113,14 @@ def add_or_update(item: ItemModel):
     client.batch_update_points(
         collection_name=item.application_id,
         update_operations=update_operations)
+
+
+def delete(application_id, dataset_id, entity_id):
+    to_delete_ids = get_by_filter(application_id, dataset_id, entity_id)
+    if len(to_delete_ids) > 0:
+        client.delete(
+            collection_name=application_id,
+            points_selector=models.PointIdsList(
+                points=to_delete_ids
+            ),
+        )

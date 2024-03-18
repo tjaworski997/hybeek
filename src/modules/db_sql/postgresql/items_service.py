@@ -65,3 +65,11 @@ def delete(application_id, dataset_id, entity_id, with_commit=True):
 
     if with_commit:
         conn.commit()
+
+
+def delete_application(application_id, with_commit=True):
+    cur.execute("DELETE from items where application_id = %s",
+                (application_id,))
+
+    if with_commit:
+        conn.commit()

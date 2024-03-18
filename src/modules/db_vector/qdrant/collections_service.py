@@ -124,3 +124,7 @@ def delete(application_id, dataset_id, entity_id):
                 points=to_delete_ids
             ),
         )
+
+
+def delete_collection(application_id: str):
+    client.delete_collection(application_id)

@@ -164,6 +164,34 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "delete_application",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/applications?application_id=raccoon",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"applications"
+					],
+					"query": [
+						{
+							"key": "application_id",
+							"value": "raccoon"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

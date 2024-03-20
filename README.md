@@ -20,6 +20,8 @@ I want to base the solution on three open-source engines:
 
 For generating text vectors, I want to use open-source language models.
 
+[<img src="./res/images/hybek.png" width="800" />](image.png)
+
 ### Todo:
 
     [X] qdrant - installation

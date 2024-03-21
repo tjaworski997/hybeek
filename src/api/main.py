@@ -3,6 +3,7 @@
 from typing import Union
 
 from fastapi import FastAPI
+from starlette.middleware.cors import CORSMiddleware
 
 from src.api.modules.api.models.ItemApiModel import ItemApiModel
 from src.api.modules.models.item_model import ItemModel
@@ -11,6 +12,19 @@ from src.api.modules.services.items_service import add_or_update as service_add_
 from src.api.modules.services.search_service import search as service_search
 
 app = FastAPI()
+
+origins = [
+    "http://localhost:4200",
+    "https://localhost:4200",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/")
@@ -34,6 +48,8 @@ def add_or_update(item: ItemApiModel):
     )
 
     service_add_or_update(data)
+
+    return {"status": "ok"}
 
 
 @app.get("/search")

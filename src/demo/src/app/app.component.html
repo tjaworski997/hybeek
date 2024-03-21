@@ -1,41 +1,81 @@
-<div class="flex flex-col w-screen p-24">
+<div class="flex flex-col w-screen px-20 pt-20">
     <div class="pb-6 mb-6 border-b border-base-content/40">
         <h1 class="text-6xl font-thin">Hybeek demo</h1>
     </div>
 
-    <div class="w-full border-b border-base-content/40 pb-8 mb-6">
 
-        <h2 class="text-4xl font-thin text-info mb-5">Params</h2>
 
-        <label class="form-control">
-            <div class="label">
-                <span class="label-text">Application id</span>
-            </div>
-            <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
-        </label>
-        <label class="form-control">
-            <div class="label">
-                <span class="label-text">DataSet id</span>
-            </div>
-            <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
-        </label>
-
-    </div>
-
-    <div class="border-b border-base-content/40 pb-8 mb-6">
-        <h2 class="text-4xl font-thin text-info mb-5">Import</h2>
-
-        <button class="btn ">Import data</button></div>
-    <div>
+    <div class="">
         <h2 class="text-4xl font-thin text-info mb-5">Search zone</h2>
         <label class="input input-bordered flex items-center gap-2">
-            <input type="text" class="grow" placeholder="Search" />
+            <input type="text" class="grow" placeholder="Search" [(ngModel)]="searchText" />
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 opacity-70"><path fill-rule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clip-rule="evenodd" /></svg>
         </label>
+
+        <button class="btn btn-info uppercase text-xl mt-5" (click)="search()">Search</button>
+    </div>
+
+
+    <div class="border-b border-base-content/40 pb-8 mb-6">
+
+        <h2 class="text-xl font-thin my-6">Result</h2>
+        <div class="overflow-x-auto">
+            <table class="table table-xs">
+                <thead>
+                <tr>
+                    <th ></th>
+                    <th>Content</th>
+                    <th>Score</th>
+                </tr>
+                </thead>
+                <tbody >
+                    @for (item of result; track item.entity_id)
+                    {
+                        <tr>
+                            <th [ngClass]="{'text-warning' : $index==0}"   >{{$index+1}}</th>
+                            <td [ngClass]="{'text-warning' : $index==0}">{{  JSON.parse(item.data).text}}</td>
+                            <td [ngClass]="{'text-warning' : $index==0}">{{item.score}}</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="border-b border-base-content/40 pb-8 mb-6">
+        <h2 class="text-4xl font-thin text-info mb-5">Import zone</h2>
+
+
+
+            <label class="form-control">
+                <div class="label">
+                    <span class="label-text">Application id</span>
+                </div>
+                <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs " [(ngModel)]="applicationId" />
+            </label>
+            <label class="form-control">
+                <div class="label">
+                    <span class="label-text">DataSet id</span>
+                </div>
+                <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs " [(ngModel)]="dataSetId" />
+            </label>
+
+
+
+
+
+        <label class="form-control">
+            <div class="label">
+                <span class="label-text">Data</span>
+                <span class="label-text-alt"> id + text, przykład: 1. to był fajny dzień;-), kolejne rekordy w kolenych liniach</span>
+            </div>
+            <textarea class="textarea textarea-bordered h-24" placeholder="wrzuć coś..." [(ngModel)]="data"></textarea>
+        </label>
+        <button class="btn btn-info uppercase text-xl mt-5" (click)="importData()">Import data</button>
     </div>
 
 
 </div>
-
 
 
